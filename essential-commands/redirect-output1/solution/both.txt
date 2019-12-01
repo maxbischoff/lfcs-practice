@@ -1,0 +1,3 @@
+This should not be removed
+This message goes to stderr
+This message goes to stdout
