@@ -19,4 +19,7 @@ mv solution/*.txt /opt/solutions_EC001/
 mv solution/checker.sh /usr/local/bin/check_solution
 chmod +x /usr/local/bin/check_solution
 
+mv solution/show.sh /usr/local/bin/show_solution
+chmod +x /usr/local/bin/show_solution
+
 rmdir solution
