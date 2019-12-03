@@ -21,4 +21,4 @@ jobs:
     - name: Update task README.md files using `make readmes`
       run: make clean readmes
     - name: Check if README files need to be updated
-      run: git status --porcelain
+      run: git diff --exit-code
