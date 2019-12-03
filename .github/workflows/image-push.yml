@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  push-all:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: |
+        docker login docker.pkg.github.com -u USERNAME -p "${GITHUB_PACKAGE_REGISTRY_TOKEN}"
+        make push-base push-tasks
+      env:
+        GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
+        username: maxbischoff
+        DOCKER_REPO: docker.pkg.github.com/maxbischoff/lfcs-practice
