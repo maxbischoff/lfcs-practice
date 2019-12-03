@@ -12,9 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: |
-        docker login docker.pkg.github.com -u USERNAME -p "${GITHUB_PACKAGE_REGISTRY_TOKEN}"
+        docker login -u ${USERNAME} -p "${DOCKER_REGISTRY_TOKEN}"
         make push-base push-tasks
       env:
-        GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
-        username: maxbischoff
-        DOCKER_REPO: docker.pkg.github.com/maxbischoff/lfcs-practice
+        DOCKER_REGISTRY_TOKEN: ${{ secrets.DOCKER_REGISTRY_TOKEN }}
+        USERNAME: maxbischoff
+        DOCKER_REPO: maxbischoff
