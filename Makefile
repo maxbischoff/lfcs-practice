@@ -30,8 +30,11 @@ readmes: $(task_folders)/README.md
 
 $(task_folders)/README.md: $(task_folders)/task tasks-readme-base.md
 	cp tasks-readme-base.md $@
-	sed -i "" -e 's/HEADING/$(subst /,: ,$(task_folders))/g' $@
-	sed -i "" -e 's#IMAGE#$(DOCKER_REPO)/$(subst /,_,$(task_folders))#g' $@
+	@# use sed command that is compatible with MacOS and Linux
+	@# https://stackoverflow.com/questions/5694228/sed-in-place-flag-that-works-both-on-mac-bsd-and-linux
+	sed -i.bak -e 's/HEADING/$(subst /,: ,$(task_folders))/g' $@
+	sed -i.bak -e 's#IMAGE#$(DOCKER_REPO)/$(subst /,_,$(task_folders))#g' $@
+	rm $@.bak
 	cat $(dir $@)/task >> $@
 
 .PHONY: clean clean-readmes
