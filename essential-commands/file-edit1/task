@@ -1,0 +1,5 @@
+Edit the file located in `/home/student/file.txt` and complete the following tasks:
+
+1. Move line `78` to line `1`.
+2. Remove line `75`.
+3. Replace every occurence of the word `Nulla` shown with an uppercase `N`, with the word `Omnia`.
